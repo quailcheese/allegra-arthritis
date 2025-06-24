@@ -1,0 +1,293 @@
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(247, 245, 243, 0.85); /* Slightly more transparent cream color */
+  backdrop-filter: blur(8px); /* Subtle blur for better text readability */
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  padding: 0;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  height: 95px;
+  width: 100%;
+}
+
+/* Brand/Logo - Fixed to left */
+.navbar-brand {
+  order: 1;
+  flex: 0 0 auto;
+  margin-right: auto;
+}
+
+.navbar-brand h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+/* Navigation Links - Centered */
+.navbar-nav {
+  order: 2;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+  flex: 1;
+  max-width: 600px;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #3498db;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #3498db;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Patient Portal Button - Fixed to right */
+.navbar-actions {
+  order: 3;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.patient-portal-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0.25px;
+  white-space: nowrap;
+}
+
+.patient-portal-btn:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+  order: 4;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  width: 24px;
+  height: 18px;
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #2c3e50;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger span:last-child {
+  margin-bottom: 0;
+}
+
+.hamburger.active span:first-child {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:last-child {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 95px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(247, 245, 243, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 2rem;
+  transform: translateY(-100vh);
+  transition: transform 0.3s ease;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.mobile-nav.active {
+  transform: translateY(0);
+}
+
+.mobile-nav-link,
+.mobile-patient-portal-btn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.mobile-nav-link:hover {
+  color: #3498db;
+}
+
+.mobile-nav-link:last-of-type {
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+
+.mobile-patient-portal-btn {
+  background: #3498db;
+  color: white;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 1rem;
+  border-bottom: none;
+  padding: 1.25rem 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.25px;
+}
+
+.mobile-patient-portal-btn:hover {
+  background: #2980b9;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 1rem 1.5rem;
+    justify-content: space-between;
+  }
+  
+  .navbar-brand {
+    order: 1;
+    margin-right: 0;
+    flex: 1;
+  }
+  
+  .navbar-brand h1 {
+    font-size: 1.2rem;
+  }
+  
+  /* Completely hide desktop navigation and patient portal button on mobile */
+  .navbar-nav {
+    display: none !important;
+  }
+  
+  .navbar-actions {
+    display: none !important;
+  }
+  
+  .patient-portal-btn {
+    display: none !important;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+    order: 2;
+    flex: 0 0 auto;
+  }
+  
+  .mobile-nav {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 1rem;
+  }
+  
+  .navbar-brand h1 {
+    font-size: 1.1rem;
+  }
+  
+  .mobile-nav {
+    padding: 1.5rem;
+  }
+}
+
+/* Additional responsive adjustments for very wide screens */
+@media (min-width: 1400px) {
+  .navbar-nav {
+    max-width: 800px;
+  }
+}
+
+/* Ensure mobile-only elements are properly hidden on desktop */
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  
+  .mobile-nav {
+    display: none !important;
+  }
+} 
