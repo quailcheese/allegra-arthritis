@@ -1,31 +1,59 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './LocationMap.css';
 
 const LocationMap: React.FC = () => {
+  // Restore scroll position when component mounts (user returns from maps)
+  useEffect(() => {
+    const savedScrollPosition = sessionStorage.getItem('scrollPosition');
+    if (savedScrollPosition) {
+      // Small delay to ensure page is fully loaded
+      setTimeout(() => {
+        window.scrollTo(0, parseInt(savedScrollPosition, 10));
+        sessionStorage.removeItem('scrollPosition'); // Clean up
+      }, 100);
+    }
+  }, []);
+
   const locations = [
     {
       name: "Red Bank Office",
-      address: "123 Broad St, Red Bank, NJ 07701",
-      phone: "(732) 555-0101",
-      hours: "Mon-Fri: 8:00 AM - 5:00 PM"
+      address: "282 Broad Street, Red Bank, NJ 07701",
+      phone: "732-842-3600",
+      hours: [
+        "Monday: 8:30am - 4:30pm",
+        "Tuesday: 8:30am - 4:30pm", 
+        "Wednesday: 8:30am - 4:30pm",
+        "Thursday: 8:30am - 4:30pm"
+      ]
     },
     {
       name: "Keyport Office", 
-      address: "456 Main St, Keyport, NJ 07735",
-      phone: "(732) 555-0102",
-      hours: "Mon-Fri: 9:00 AM - 4:00 PM"
+      address: "250 Maple Place, Keyport, NJ 07735",
+      phone: "732-351-7000",
+      hours: [
+        "Monday: 8:30am - 4:30pm",
+        "Tuesday: 8:30am - 4:30pm",
+        "Wednesday: 8:30am - 3:30pm", 
+        "Thursday: 8:30am - 4:30pm",
+        "Friday: 8:30am - 3:30pm"
+      ]
     },
     {
       name: "Hazlet Office",
-      address: "789 Route 35, Hazlet, NJ 07730",
-      phone: "(732) 555-0103", 
-      hours: "Tue, Thu: 9:00 AM - 3:00 PM"
+      address: "115 Clark Street, Hazlet, NJ 07730",
+      phone: "732-739-1400", 
+      hours: [
+        "Friday: 8:30am - 3:30pm"
+      ]
     },
     {
       name: "Howell Office",
-      address: "321 Route 9, Howell, NJ 07731",
-      phone: "(732) 555-0104",
-      hours: "Mon, Wed, Fri: 10:00 AM - 4:00 PM"
+      address: "3469 Route 9 North, Howell, NJ 07731",
+      phone: "732-233-1480",
+      hours: [
+        "Wednesday: 9:00am - 2:45pm",
+        "Friday: 9:00am - 12:45pm"
+      ]
     }
   ];
 
@@ -43,10 +71,37 @@ const LocationMap: React.FC = () => {
             <div className="location-info">
               <h3>{location.name}</h3>
               <p className="address">{location.address}</p>
-              <p className="phone">{location.phone}</p>
-              <p className="hours">{location.hours}</p>
+              <a href={`tel:${location.phone}`} className="phone">{location.phone}</a>
+              <div className="hours">
+                <strong>Office Hours:</strong>
+                {location.hours.map((hour, hourIndex) => (
+                  <p key={hourIndex} className="hour-line">{hour}</p>
+                ))}
+              </div>
             </div>
-            <button className="directions-btn">
+            <button 
+              className="directions-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                
+                // Save current scroll position
+                const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                sessionStorage.setItem('scrollPosition', scrollPosition.toString());
+                
+                const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.address)}`;
+                
+                // Use a more reliable method for opening maps
+                const link = document.createElement('a');
+                link.href = mapsUrl;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                
+                // Temporarily add to DOM and click
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
               Get Directions
             </button>
           </div>
@@ -60,17 +115,17 @@ const LocationMap: React.FC = () => {
           <p>Convenient locations throughout Central New Jersey</p>
         </div>
         
-        {/* Embedded Google Map */}
+        {/* Embedded Google Map showing Central New Jersey area */}
         <div className="map-wrapper">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.1471761852!2d-74.24764842968748!3d40.366474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c22c5c5a5a5a5a%3A0x5a5a5a5a5a5a5a5a!2sRed%20Bank%2C%20NJ!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97174.85398181818!2d-74.19999999999999!3d40.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c226f5d2f5d2f5%3A0x5d2f5d2f5d2f5d2f!2sRed%20Bank%2C%20NJ!5e0!3m2!1sen!2sus!4v1635000000000!5m2!1sen!2sus"
             width="100%"
             height="450"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Allegra Arthritis Associates Locations"
+            title="Allegra Arthritis Associates Locations - Central New Jersey"
           ></iframe>
         </div>
         

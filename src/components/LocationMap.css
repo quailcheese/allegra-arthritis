@@ -19,6 +19,9 @@
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.05);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .location-card:hover {
@@ -36,6 +39,11 @@
   border-radius: 50%;
   color: white;
   margin-bottom: 1rem;
+}
+
+.location-info {
+  flex: 1;
+  margin-bottom: 1.5rem;
 }
 
 .location-info h3 {
@@ -57,25 +65,36 @@
   color: #3498db;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.location-info .phone:hover {
+  color: #2980b9;
+  text-decoration: underline;
 }
 
 .location-info .hours {
   font-size: 0.9rem;
   color: #666;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0;
 }
 
 .directions-btn {
   background: #3498db;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.9rem 1.8rem;
   border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 1.08rem;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
+  margin-top: auto;
+  align-self: flex-end;
 }
 
 .directions-btn:hover {
@@ -194,4 +213,23 @@
     padding: 0.65rem 1.25rem;
     font-size: 0.85rem;
   }
+}
+
+.hours {
+  margin-top: 1rem;
+}
+
+.hours strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.hour-line {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.3;
 } 

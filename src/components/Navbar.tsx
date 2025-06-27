@@ -24,6 +24,11 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(false);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
   const handlePatientPortalClick = () => {
     // Replace this URL with the actual patient portal URL
     window.open('https://portal.eyereachpatients.com/Patients/allegraarthritisassociates/Account/LogOn?ReturnUrl=%2fPatients%2fallegraarthritisassociates', '_blank');
@@ -35,7 +40,7 @@ const Navbar: React.FC = () => {
         <div className="navbar-container">
           {/* Brand/Logo */}
           <div className="navbar-brand">
-            <h1>Allegra Arthritis Associates</h1>
+            <h1 onClick={scrollToTop}>Allegra Arthritis Associates</h1>
           </div>
 
           {/* Desktop Navigation Links - Only show on desktop */}
