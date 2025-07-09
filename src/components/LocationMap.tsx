@@ -19,6 +19,8 @@ const LocationMap: React.FC = () => {
       name: "Red Bank Office",
       address: "282 Broad Street, Red Bank, NJ 07701",
       phone: "732-842-3600",
+      lat: 40.3476,
+      lng: -74.0676,
       hours: [
         "Monday: 8:30am - 4:30pm",
         "Tuesday: 8:30am - 4:30pm", 
@@ -30,6 +32,8 @@ const LocationMap: React.FC = () => {
       name: "Keyport Office", 
       address: "250 Maple Place, Keyport, NJ 07735",
       phone: "732-351-7000",
+      lat: 40.4431,
+      lng: -74.1999,
       hours: [
         "Monday: 8:30am - 4:30pm",
         "Tuesday: 8:30am - 4:30pm",
@@ -42,14 +46,19 @@ const LocationMap: React.FC = () => {
       name: "Hazlet Office",
       address: "115 Clark Street, Hazlet, NJ 07730",
       phone: "732-739-1400", 
+      lat: 40.4239,
+      lng: -74.1487,
       hours: [
-        "Friday: 8:30am - 3:30pm"
+        "Tuesday: 8:30am - 3:00pm",
+        "Friday: 8:30am - 3:00pm"
       ]
     },
     {
       name: "Howell Office",
       address: "3469 Route 9 North, Howell, NJ 07731",
       phone: "732-233-1480",
+      lat: 40.1451,
+      lng: -74.2436,
       hours: [
         "Wednesday: 9:00am - 2:45pm",
         "Friday: 9:00am - 12:45pm"
@@ -115,23 +124,26 @@ const LocationMap: React.FC = () => {
           <p>Convenient locations throughout Central New Jersey</p>
         </div>
         
-        {/* Embedded Google Map showing Central New Jersey area */}
+        {/* Temporary static map of Central New Jersey focused on Red Bank area */}
         <div className="map-wrapper">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97174.85398181818!2d-74.19999999999999!3d40.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c226f5d2f5d2f5%3A0x5d2f5d2f5d2f5d2f!2sRed%20Bank%2C%20NJ!5e0!3m2!1sen!2sus!4v1635000000000!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48594.32794181639!2d-74.12345678952!3d40.347618479907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c226f4c3fc1c77%3A0x12d4a41c7b63f8d2!2sRed%20Bank%2C%20NJ!5e0!3m2!1sen!2sus!4v1635000000000!5m2!1sen!2sus"
             width="100%"
             height="450"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Allegra Arthritis Associates Locations - Central New Jersey"
+            title="Central New Jersey - Red Bank Area Map"
           ></iframe>
         </div>
         
         <div className="map-footer">
           <p>
             <strong>Need help finding us?</strong> Call any of our offices and our staff will be happy to provide detailed directions.
+          </p>
+          <p className="api-note">
+            <em>Interactive map with office markers will be available once API configuration is complete.</em>
           </p>
         </div>
       </div>

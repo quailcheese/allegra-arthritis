@@ -12,9 +12,25 @@ function App() {
         {/* Hero Section */}
         <section className="hero-section">
           <div className="hero-container">
+            {/* Hero Header with Logo and Company Name */}
+            <div className="hero-header">
+              <div className="hero-logo">
+                <img 
+                  src="/images/logo1.png" 
+                  alt="Allegra Arthritis Associates Logo"
+                  className="company-logo"
+                  onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                    const target = e.currentTarget;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
+              <h1 className="company-name">Allegra Arthritis Associates</h1>
+            </div>
+            
             <div className="hero-content">
               <div className="hero-text">
-                <h1>Premier Rheumatology Care in Central New Jersey</h1>
+                <h2>Premier Rheumatology Care in Central New Jersey</h2>
                 <p>Allegra Arthritis Associates provides comprehensive, evidence-based treatment for arthritis, autoimmune disorders, and musculoskeletal conditions. Our board-certified specialists deliver personalized care with advanced diagnostic capabilities and cutting-edge therapies across multiple convenient locations in Central Jersey.</p>
                 <div className="hero-buttons">
                   <button className="cta-button primary" onClick={() => {
@@ -78,176 +94,211 @@ We are committed to providing our patients with the highest quality of care.
             </div>
             
             <div className="team-grid">
-              {/* Team Member 1 */}
-              <div className="team-member">
-                <div className="member-photo">
-                  <img 
-                    src="/images/dr-edward-c-allegra-iii-md.jpg"
-                    alt="Dr. Edward Allegra - Rheumatologist"
-                    className="member-photo-img"
-                    onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-                      const target = e.currentTarget;
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      if (target && fallback) {
-                        target.style.display = 'none';
-                        fallback.style.display = 'flex';
-                      }
-                    }}
-                  />
-                  <div className="photo-placeholder" style={{ display: 'none' }}>
-                    <span>Dr. Edward Allegra</span>
+              {/* Doctors Row */}
+              <div className="doctors-row">
+                {/* Team Member 1 */}
+                <div className="team-member">
+                  <div className="member-photo">
+                    <img 
+                      src="/images/dr-edward-c-allegra-iii-md.jpg"
+                      alt="Dr. Edward Allegra - Rheumatologist"
+                      className="member-photo-img"
+                      onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                        const target = e.currentTarget;
+                        const fallback = target.nextElementSibling as HTMLElement;
+                        if (target && fallback) {
+                          target.style.display = 'none';
+                          fallback.style.display = 'flex';
+                        }
+                      }}
+                    />
+                    <div className="photo-placeholder" style={{ display: 'none' }}>
+                      <span>Dr. Edward Allegra</span>
+                    </div>
+                  </div>
+                  <div className="member-info">
+                    <h3>Edward Allegra, MD, FACR</h3>
+                    <p className="title">Rheumatologist</p>
+                    <p className="credentials">MD, Board Certified Rheumatologist, Fellow of American College of Rheumatology</p>
+                    <p className="specialty">Dr. Allegra is a board-certified rheumatologist with over 25 years of experience in outpatient treatment and diagnosis of adult rheumatologic diseases and a fellow from American College of Rheumatology. He has been in private practice since 1996 when he established Allegra Arthritis Associates. Dr. Allegra is a consultant Rheumatologist with Hackensack Health Review Medical Center and Bayshore Medical Center in Central New Jersey. Dr. Allegra's expertise includes the use of musculoskeletal ultrasound for diagnosis and procedure guidance in the management of rheumatologic diseases. Dr. Allegra is commited to providing patients with the highest quality of care and resources for optimal disease management..
+                    Dr. Allegra treats patients in Red Bank, Keyport and Hazlet. </p>
                   </div>
                 </div>
-                <div className="member-info">
-                  <h3>Dr. Edward Allegra</h3>
-                  <p className="title">Rheumatologist</p>
-                  <p className="credentials">MD, PhD, Board Certified Rheumatologist, Fellow of American College of Rheumatology</p>
-                  <p className="specialty">Dr. Allegra is a board-certified rheumatologist with over 25 years of experience in outpatient treatment and diagnosis of adult rheumatologic diseases and a fellow from American College of Rheumatology. He has been in private practice since 1996 when he established Allegra Arthritis Associates. Dr. Allegra is a consultant Rheumatologist with Hackensack Health Review Medical Center and Bayshore Medical Center in Central New Jersey. Dr. Allegra's expertise includes the use of musculoskeletal ultrasound for diagnosis and procedure guidance in the management of rheumatologic diseases. Dr. Allegra is commited to providing patients with the highest quality of care and resources for optimal disease management..
-                  Dr. Allegra treats patients in Red Bank, Keyport and Hazlet. </p>
+
+                {/* Team Member 2 */}
+                <div className="team-member">
+                  <div className="member-photo">
+                    <img 
+                      src="/images/haddad.jpg"
+                      alt="Dr. Richard Haddad - Rheumatologist"
+                      className="member-photo-img"
+                      onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                        const target = e.currentTarget;
+                        const fallback = target.nextElementSibling as HTMLElement;
+                        if (target && fallback) {
+                          target.style.display = 'none';
+                          fallback.style.display = 'flex';
+                        }
+                      }}
+                    />
+                    <div className="photo-placeholder" style={{ display: 'none' }}>
+                      <span>Dr. Richard Haddad</span>
+                    </div>
+                  </div>
+                  <div className="member-info">
+                    <h3>Richard Haddad, MD, FACR</h3>
+                    <p className="title">Rheumatologist</p>
+                    <p className="credentials">MD, Board Certified Rheumatologist, Fellow of American College of Rheumatology</p>
+                    <p className="specialty">Dr. Haddad is a board-certified rheumatologist and a fellow from the American College of Rheumatology. Dr. Haddad completed his rheumatology fellowship training at Cooper Medical Center, Robert Wood Johnson School of Medicine, N.J. Dr. Haddad's expertise inlcudes the use of musculoskeletal ultrasound for diagnosis and procedure guidance in the management of rheumatoid arthritis, psoriatic arthritis, osteoarthritis, gout, pseudogout and various other musculoskeletal disorders. He enjoys teaching and has been awarded an Affiliate Clinical Faculty at Monmouth University. In regards to patient care, he shares a similar philosophy as William Osler, "The good physician treats the disease." 
+                    Dr. Haddad treats patients in Keyport and Red Bank.</p>
+                  </div>
+                </div>
+
+                {/* Team Member 3 */}
+                <div className="team-member">
+                  <div className="member-photo">
+                    <img 
+                      src="/images/Amanda_Scott.png"
+                      alt="Dr. Amanda Scott - Rheumatologist"
+                      className="member-photo-img"
+                      onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                        const target = e.currentTarget;
+                        const fallback = target.nextElementSibling as HTMLElement;
+                        if (target && fallback) {
+                          target.style.display = 'none';
+                          fallback.style.display = 'flex';
+                        }
+                      }}
+                    />
+                    <div className="photo-placeholder" style={{ display: 'none' }}>
+                      <span>Dr. Amanda Scott</span>
+                    </div>
+                  </div>
+                  <div className="member-info">
+                    <h3>Amanda Scott, MD</h3>
+                    <p className="title">Rheumatologist</p>
+                    <p className="credentials">MD, Board Certified Rheumatologist</p>
+                    <p className="specialty">Dr. Amanda Scott obtained her medical degree from St. George's University, Grenada. She then went on to complete her internal medicine residency at Overlook Medical Center in Summit, NJ. Following this, she finished her rheumatology fellowship at Tufts Medical Center in Boston, MA. Before joining Allegra Arthritis Associates, Dr. Scott accumulated over a decade of experience in arthritis and rheumatology. Her warm personality and empathetic demeanor allow her to provide excellent care to all of her patients. She enjoys treating a wide array of rheumatologic conditions, with an emphasis on improved functionality. In her free time, she loves spending time outdoors and at the beach with her husband and children.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              {/* Team Member 2 */}
-              <div className="team-member">
-                <div className="member-photo">
-                  <img 
-                    src="/images/haddad.jpg"
-                    alt="Dr. Richard Haddad - Rheumatologist"
-                    className="member-photo-img"
-                    onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-                      const target = e.currentTarget;
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      if (target && fallback) {
-                        target.style.display = 'none';
-                        fallback.style.display = 'flex';
-                      }
-                    }}
-                  />
-                  <div className="photo-placeholder" style={{ display: 'none' }}>
-                    <span>Dr. Richard Haddad</span>
+              {/* Support Staff Row */}
+              <div className="support-staff-row">
+                {/* Team Member 4 */}
+                <div className="team-member">
+                  <div className="member-photo">
+                    <img 
+                      src="/images/colucci.jpg"
+                      alt="Mia Collucci - PA-C"
+                      className="member-photo-img"
+                      onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                        const target = e.currentTarget;
+                        const fallback = target.nextElementSibling as HTMLElement;
+                        if (target && fallback) {
+                          target.style.display = 'none';
+                          fallback.style.display = 'flex';
+                        }
+                      }}
+                    />
+                    <div className="photo-placeholder" style={{ display: 'none' }}>
+                      <span>Mia Collucci</span>
+                    </div>
                   </div>
-                </div>
-                <div className="member-info">
-                  <h3>Dr. Richard Haddad</h3>
-                  <p className="title">Rheumatologist</p>
-                  <p className="credentials">MD, Board Certified Rheumatologist, Fellow of American College of Rheumatology</p>
-                  <p className="specialty">Dr. Haddad is a board-certified rheumatologist and a fellow from the American College of Rheumatology. Dr. Haddad completed his rheumatology fellowship training at Cooper Medical Center, Robert Wood Johnson School of Medicine, N.J. Dr. Haddad's expertise inlcudes the use of musculoskeletal ultrasound for diagnosis and procedure guidance in the management of rheumatoid arthritis, psoriatic arthritis, osteoarthritis, gout, pseudogout and various other musculoskeletal disorders. He enjoys teaching and has been awarded an Affiliate Clinical Faculty at Monmouth University. In regards to patient care, he shares a similar philosophy as William Osler, "The good physician treats the disease." 
-                  Dr. Haddad treats patients in Keyport and Red Bank.</p>
-                </div>
-              </div>
-
-              {/* Team Member 3 */}
-              <div className="team-member">
-                <div className="member-photo">
-                  <img 
-                    src="/images/badamo.jpg"
-                    alt="Justin Badamo - PA-C"
-                    className="member-photo-img"
-                    onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-                      const target = e.currentTarget;
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      if (target && fallback) {
-                        target.style.display = 'none';
-                        fallback.style.display = 'flex';
-                      }
-                    }}
-                  />
-                  <div className="photo-placeholder" style={{ display: 'none' }}>
-                    <span>Justin Badamo</span>
-                  </div>
-                </div>
-                <div className="member-info">
-                  <h3>Justin Badamo</h3>
-                  <p className="title">PA-C</p>
-                  <p className="credentials">Board Certified Physician Assistant, BS & MS from Monmouth University</p>
-                  <p className="specialty">Justin is a board-certified physician assistant recognized by the National Commission on Certification of Physician Assistants.  He received both a Bachelor of Science and a Master of Science in Physician Assistant Studies from Monmouth University. Justin is devoted to improving the well being and quality of life of his patients through compassionate and high-quality care.  
-                  Justin treats patients in Keyport and Red Bank.</p>
-                </div>
-              </div>
-
-              {/* Team Member 4 */}
-              <div className="team-member">
-                <div className="member-photo">
-                  <img 
-                    src="/images/colucci.jpg"
-                    alt="Mia Collucci - PA-C"
-                    className="member-photo-img"
-                    onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-                      const target = e.currentTarget;
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      if (target && fallback) {
-                        target.style.display = 'none';
-                        fallback.style.display = 'flex';
-                      }
-                    }}
-                  />
-                  <div className="photo-placeholder" style={{ display: 'none' }}>
-                    <span>Mia Collucci</span>
-                  </div>
-                </div>
-                <div className="member-info">
-                  <h3>Mia Collucci</h3>
-                  <p className="title">PA-C</p>
-                  <p className="credentials">Board Certified Physician Assistant, BS & MS from Monmouth University</p>
-                  <p className="specialty">Mia is a board-certified physician assistant specializing in the field of rheumatology. She received her Bachelor's of Science and a Master of Science in Physician Assistant Studies from Monmouth University. In addition, Mia completed over 2,000 hours of clinical training. Mia is a dedicated healthcare professional passionate about patient care and she is committed to making sure that everyone has access to the most advanced and effective treatments for arthritis and rheumatologic conditions.  
+                  <div className="member-info">
+                    <h3>Mia Collucci, PA-C</h3>
+                    <p className="title">Physician Assistant</p>
+                    <p className="credentials">Board Certified Physician Assistant, BS & MS from Monmouth University</p>
+                    <p className="specialty">Mia is a board-certified physician assistant specializing in the field of rheumatology. She received her Bachelor's of Science and a Master of Science in Physician Assistant Studies from Monmouth University. In addition, Mia completed over 2,000 hours of clinical training. Mia is a dedicated healthcare professional passionate about patient care and she is committed to making sure that everyone has access to the most advanced and effective treatments for arthritis and rheumatologic conditions.  
 Mia treats patients in Red Bank, Hazlet, Keyport and Howell.
-                  </p>
-                </div>
-              </div>
-
-              {/* Team Member 5 */}
-              <div className="team-member">
-                <div className="member-photo">
-                  <img 
-                    src="/images/Maria-NP.jpg"
-                    alt="Maria Cogar - FNP-BC"
-                    className="member-photo-img"
-                    onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-                      const target = e.currentTarget;
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      if (target && fallback) {
-                        target.style.display = 'none';
-                        fallback.style.display = 'flex';
-                      }
-                    }}
-                  />
-                  <div className="photo-placeholder" style={{ display: 'none' }}>
-                    <span>Maria Cogar</span>
+                    </p>
                   </div>
                 </div>
-                <div className="member-info">
-                  <h3>Maria Cogar</h3>
-                  <p className="title">FNP-BC</p>
-                  <p className="credentials">Board Certified Nurse Practitioner, BSN from Seton Hall University, MSN</p>
-                  <p className="specialty">Maria is a board-certified nurse practioner specializing in the field of rheumatology. After graduating with a Bachelor of Science in Nursing from Seton Hall University, Maria began her career as a registered nurse in the emergency room, providing care for patients with critical injuries and illnesses and thriving in a face-paced environment. She then transitioned to interventional radiology, where she developed compassion and empathy during vulnerable procedures. While pursuing her Master of Science in Nursing, Maria joined Allegra Arthritis Associates as an infusion nurse, discovering her passion for rheumatology and patient care. Maria treats patients in Keyport, Red Bank and Howell.</p>
-                </div>
-              </div>
 
-              {/* Team Member 6 */}
-              <div className="team-member">
-                <div className="member-photo">
-                  <img 
-                    src="/images/matragas.jpg"
-                    alt="Tiffany Matragas - PA-C"
-                    className="member-photo-img"
-                    onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-                      const target = e.currentTarget;
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      if (target && fallback) {
-                        target.style.display = 'none';
-                        fallback.style.display = 'flex';
-                      }
-                    }}
-                  />
-                  <div className="photo-placeholder" style={{ display: 'none' }}>
-                    <span>Tiffany Matragas</span>
+                {/* Team Member 5 */}
+                <div className="team-member">
+                  <div className="member-photo">
+                    <img 
+                      src="/images/matragas.jpg"
+                      alt="Tiffany Matragas - PA-C"
+                      className="member-photo-img"
+                      onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                        const target = e.currentTarget;
+                        const fallback = target.nextElementSibling as HTMLElement;
+                        if (target && fallback) {
+                          target.style.display = 'none';
+                          fallback.style.display = 'flex';
+                        }
+                      }}
+                    />
+                    <div className="photo-placeholder" style={{ display: 'none' }}>
+                      <span>Tiffany Matragas</span>
+                    </div>
+                  </div>
+                  <div className="member-info">
+                    <h3>Tiffany Matragas, PA-C</h3>
+                    <p className="title">Physician Assistant</p>
+                    <p className="credentials">Board Certified Physician Assistant, BS from Duquesne University, MS from Saint Francis University</p>
+                    <p className="specialty">Tiffany is a board-certified physician assistant who joined Allegra Arthritis Associates and the field of Rheumatology in 2022.  Her extensive experience as a Physician Assistant for the past 15 years encompasses the fields of Vascular Surgery, Thoracic Surgery, Plastic Surgery, Family Medicine and Rheumatology. As a Pittsburgh, PA native, she received her BS in Biology from Duquesne University in Pittsburgh and her Masters in Physician Assistant Sciences from Saint Francis University in Loretto, PA. Tiffany's diverse medical and surgical background make her an excellent asset to the practice.</p>
                   </div>
                 </div>
-                <div className="member-info">
-                  <h3>Tiffany Matragas</h3>
-                  <p className="title">PA-C</p>
-                  <p className="credentials">Board Certified Physician Assistant, BS from Duquesne University, MS from Saint Francis University</p>
-                  <p className="specialty">Tiffany is a board-certified physician assistant who joined Allegra Arthritis Associates and the field of Rheumatology in 2022.  Her extensive experience as a Physician Assistant for the past 15 years encompasses the fields of Vascular Surgery, Thoracic Surgery, Plastic Surgery, Family Medicine and Rheumatology. As a Pittsburgh, PA native, she received her BS in Biology from Duquesne University in Pittsburgh and her Masters in Physician Assistant Sciences from Saint Francis University in Loretto, PA. Tiffany's diverse medical and surgical background make her an excellent asset to the practice.</p>
+
+                {/* Team Member 6 */}
+                <div className="team-member">
+                  <div className="member-photo">
+                    <img 
+                      src="/images/badamo.jpg"
+                      alt="Justin Badamo - PA-C"
+                      className="member-photo-img"
+                      onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                        const target = e.currentTarget;
+                        const fallback = target.nextElementSibling as HTMLElement;
+                        if (target && fallback) {
+                          target.style.display = 'none';
+                          fallback.style.display = 'flex';
+                        }
+                      }}
+                    />
+                    <div className="photo-placeholder" style={{ display: 'none' }}>
+                      <span>Justin Badamo</span>
+                    </div>
+                  </div>
+                  <div className="member-info">
+                    <h3>Justin Badamo, PA-C</h3>
+                    <p className="title">Physician Assistant</p>
+                    <p className="credentials">Board Certified Physician Assistant, BS & MS from Monmouth University</p>
+                    <p className="specialty">Justin is a board-certified physician assistant recognized by the National Commission on Certification of Physician Assistants.  He received both a Bachelor of Science and a Master of Science in Physician Assistant Studies from Monmouth University. Justin is devoted to improving the well being and quality of life of his patients through compassionate and high-quality care.  
+                    Justin treats patients in Keyport and Red Bank.</p>
+                  </div>
+                </div>
+
+                {/* Team Member 7 */}
+                <div className="team-member">
+                  <div className="member-photo">
+                    <img 
+                      src="/images/Maria-NP.jpg"
+                      alt="Maria Cogar - FNP-BC"
+                      className="member-photo-img"
+                      onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                        const target = e.currentTarget;
+                        const fallback = target.nextElementSibling as HTMLElement;
+                        if (target && fallback) {
+                          target.style.display = 'none';
+                          fallback.style.display = 'flex';
+                        }
+                      }}
+                    />
+                    <div className="photo-placeholder" style={{ display: 'none' }}>
+                      <span>Maria Cogar</span>
+                    </div>
+                  </div>
+                  <div className="member-info">
+                    <h3>Maria Cogar, NP-C</h3>
+                    <p className="title">Nurse Practitioner</p>
+                    <p className="credentials">Board Certified Nurse Practitioner, BSN from Seton Hall University, MSN</p>
+                    <p className="specialty">Maria is a board-certified nurse practioner specializing in the field of rheumatology. After graduating with a Bachelor of Science in Nursing from Seton Hall University, Maria began her career as a registered nurse in the emergency room, providing care for patients with critical injuries and illnesses and thriving in a face-paced environment. She then transitioned to interventional radiology, where she developed compassion and empathy during vulnerable procedures. While pursuing her Master of Science in Nursing, Maria joined Allegra Arthritis Associates as an infusion nurse, discovering her passion for rheumatology and patient care. Maria treats patients in Keyport, Red Bank and Howell.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -255,7 +306,7 @@ Mia treats patients in Red Bank, Hazlet, Keyport and Howell.
             <div className="team-footer">
               <p>Our team is committed to staying at the forefront of rheumatology through continuing education, research, and evidence-based practice.</p>
             </div>
-      </div>
+          </div>
         </section>
 
         {/* Locations Section */}

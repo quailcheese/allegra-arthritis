@@ -39,8 +39,13 @@ const Navbar: React.FC = () => {
       <nav className="navbar">
         <div className="navbar-container">
           {/* Brand/Logo */}
-          <div className="navbar-brand">
-            <h1 onClick={scrollToTop}>Allegra Arthritis Associates</h1>
+          <div className="navbar-brand" onClick={scrollToTop}>
+            <img 
+              src="/images/logo1.png" 
+              alt="Allegra Arthritis Associates Logo" 
+              className="navbar-logo"
+            />
+            <h1>Allegra Arthritis Associates</h1>
           </div>
 
           {/* Desktop Navigation Links - Only show on desktop */}
