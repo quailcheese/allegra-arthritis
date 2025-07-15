@@ -102,7 +102,7 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ locations, apiKey }) => {
       mapInstanceRef.current = map;
 
       // Create markers for each location
-      locations.forEach((location, index) => {
+      locations.forEach((location) => {
         const marker = new google.maps.Marker({
           position: { lat: location.lat, lng: location.lng },
           map: map,
