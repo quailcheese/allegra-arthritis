@@ -16,7 +16,7 @@ const LocationMap: React.FC = () => {
   }, []);
 
   // Get API key from environment variables
-  const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY;
+  const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
   const locations = [
     {
