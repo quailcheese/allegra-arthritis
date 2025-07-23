@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import GoogleMap from './GoogleMap';
 import './LocationMap.css';
 
 const LocationMap: React.FC = () => {
@@ -13,6 +14,9 @@ const LocationMap: React.FC = () => {
       }, 100);
     }
   }, []);
+
+  // Get API key from environment variables
+  const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY;
 
   const locations = [
     {
@@ -125,26 +129,14 @@ const LocationMap: React.FC = () => {
           <p>Convenient locations throughout Central New Jersey</p>
         </div>
         
-        {/* Temporary static map of Central New Jersey focused on Red Bank area */}
+        {/* Interactive Google Map with office markers */}
         <div className="map-wrapper">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48594.32794181639!2d-74.12345678952!3d40.347618479907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c226f4c3fc1c77%3A0x12d4a41c7b63f8d2!2sRed%20Bank%2C%20NJ!5e0!3m2!1sen!2sus!4v1635000000000!5m2!1sen!2sus"
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Central New Jersey - Red Bank Area Map"
-          ></iframe>
+          <GoogleMap locations={locations} apiKey={API_KEY} />
         </div>
         
         <div className="map-footer">
           <p>
             <strong>Need help finding us?</strong> Call any of our offices and our staff will be happy to provide detailed directions.
-          </p>
-          <p className="api-note">
-            <em>Interactive map with office markers will be available once API configuration is complete.</em>
           </p>
         </div>
       </div>
